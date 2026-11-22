@@ -21,7 +21,7 @@
       --paper: #fff;
       --ink: #000;
       --rule: #b8b8b8;
-      --control-border: #767676;
+      --muted: #626262;
       background: var(--paper);
       color: var(--ink);
       font-family: system-ui, sans-serif;
@@ -34,7 +34,7 @@
         --paper: #181818;
         --ink: #e6e6e6;
         --rule: #555;
-        --control-border: #777;
+        --muted: #a8a8a8;
       }
     }
 
@@ -68,7 +68,6 @@
     .languages {
       display: flex;
       flex-wrap: wrap;
-      gap: .25rem;
     }
 
     .language {
@@ -76,24 +75,25 @@
       place-items: center;
       block-size: 2.75rem;
       inline-size: 2.75rem;
-      border: 1px solid var(--control-border);
-      border-radius: 50%;
+      border: 0;
       padding: 0;
       background: transparent;
-      color: inherit;
-      font: 700 .75rem/1 system-ui, sans-serif;
+      color: var(--muted);
+      font: 600 .75rem/1 system-ui, sans-serif;
       cursor: pointer;
     }
 
-    .language:lang(fa) { font: 700 1rem/1 Vazirmatn, Tahoma, "Segoe UI", sans-serif; }
+    .language:lang(fa) { font: 600 .875rem/1 Vazirmatn, Tahoma, "Segoe UI", sans-serif; }
 
-    .language[aria-pressed="true"] {
-      border-color: var(--ink);
-      background: var(--ink);
-      color: var(--paper);
+    .language:hover,
+    .language[aria-pressed="true"] { color: var(--ink); }
+
+    .language[aria-pressed="true"] span {
+      text-decoration: underline;
+      text-decoration-color: var(--muted);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .35em;
     }
-
-    .language:hover { border-color: var(--ink); }
 
     main {
       max-inline-size: 42rem;
