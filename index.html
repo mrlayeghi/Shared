@@ -57,17 +57,20 @@
     }
 
     .language {
-      min-block-size: 2.75rem;
-      min-inline-size: 2.75rem;
+      display: grid;
+      place-items: center;
+      block-size: 2.75rem;
+      inline-size: 2.75rem;
       border: 1px solid transparent;
-      border-radius: 0;
-      padding: .45rem .7rem;
+      border-radius: 50%;
+      padding: 0;
       background: transparent;
       color: inherit;
-      font: inherit;
-      font-size: .875rem;
+      font: 700 .75rem/1 system-ui, sans-serif;
       cursor: pointer;
     }
+
+    .language:lang(fa) { font: 700 1rem/1 Tahoma, "Segoe UI", sans-serif; }
 
     .language[aria-pressed="true"] {
       border-color: var(--ink);
@@ -132,8 +135,12 @@
   <header>
     <p class="name"><bdi lang="en" dir="ltr">M. Reza Layeghi</bdi></p>
     <div class="languages" role="group" aria-label="زبان صفحه" hidden>
-      <button class="language" type="button" lang="fa" dir="rtl" aria-pressed="true">فارسی</button>
-      <button class="language" type="button" lang="en" dir="ltr" aria-pressed="false">English</button>
+      <button class="language" type="button" lang="fa" dir="rtl" aria-pressed="true" aria-label="فارسی" title="فارسی">
+        <span aria-hidden="true">فا</span>
+      </button>
+      <button class="language" type="button" lang="en" dir="ltr" aria-pressed="false" aria-label="English" title="English">
+        <span aria-hidden="true">EN</span>
+      </button>
     </div>
   </header>
   <main>
