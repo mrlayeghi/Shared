@@ -3,102 +3,219 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="مدیر فنی و معمار نرم‌افزار با سابقهٔ توسعهٔ سامانه‌های معاملاتی بازار سرمایه">
-  <title>M. Reza Layeghi | معرفی</title>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="مدیر ارشد فناوری با ۲۴ سال تجربهٔ مهندسی نرم‌افزار و ۱۲ سال تجربهٔ توسعهٔ سامانه‌های بازار سرمایه">
+  <title>M. Reza Layeghi | دربارهٔ من</title>
   <style>
     :root {
-      color-scheme: light;
-      background: #fff;
-      color: #000;
-      font-family: Tahoma, "Segoe UI", sans-serif;
+      color-scheme: light dark;
+      --paper: #fff;
+      --ink: #000;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, sans-serif;
+    }
+
+    :root:lang(fa) { font-family: Tahoma, "Segoe UI", sans-serif; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #000;
+        --ink: #fff;
+      }
     }
 
     * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
 
     body {
-      min-block-size: 100vh;
-      min-block-size: 100svh;
-      display: grid;
-      align-items: center;
-      margin: 0;
-      padding: clamp(1.5rem, 7vw, 6.5rem);
+      width: min(100% - 3rem, 68rem);
+      margin: 0 auto;
+      padding-block: clamp(1.25rem, 5vw, 3.5rem) clamp(2rem, 7vw, 5rem);
     }
 
-    main {
-      width: min(100%, 76rem);
-      margin-inline: auto;
-      border-block-start: 1px solid;
-      padding-block-start: clamp(1.75rem, 5vw, 4rem);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-      column-gap: clamp(2rem, 7vw, 7rem);
-      row-gap: 2rem;
+    header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem 1.5rem;
+      padding-block-end: 1rem;
+      border-block-end: 1px solid;
     }
+
+    .name {
+      margin: 0;
+      font: 650 clamp(1rem, 2vw, 1.25rem)/1.35 system-ui, sans-serif;
+      letter-spacing: -.025em;
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .25rem;
+    }
+
+    .language {
+      min-block-size: 2.75rem;
+      min-inline-size: 2.75rem;
+      border: 1px solid transparent;
+      border-radius: 0;
+      padding: .45rem .7rem;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-size: .875rem;
+      cursor: pointer;
+    }
+
+    .language[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .language:hover { border-color: var(--ink); }
+
+    main { padding-block-start: clamp(2.25rem, 7vw, 6rem); }
 
     h1 {
-      grid-column: 2;
-      grid-row: 1;
       margin: 0;
-      font-family: system-ui, sans-serif;
-      font-size: clamp(3.3rem, 8.5vw, 8rem);
-      font-weight: 700;
-      line-height: .94;
-      letter-spacing: -.075em;
+      max-inline-size: 24ch;
+      font-size: clamp(2.5rem, 7vw, 5.25rem);
+      line-height: 1;
+      letter-spacing: -.06em;
+      text-wrap: balance;
     }
 
-    h1 span { display: block; }
-
-    .details {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .role {
-      margin: 0;
-      font-size: clamp(1.125rem, 2.25vw, 1.65rem);
-      font-weight: 700;
-      line-height: 1.6;
+    h1:lang(fa) {
+      max-inline-size: 24rem;
+      line-height: 1.3;
+      letter-spacing: normal;
     }
 
     .bio {
-      max-inline-size: 42ch;
-      margin: 1rem 0 1.5rem;
-      font-size: clamp(1rem, 1.4vw, 1.125rem);
-      line-height: 2;
+      max-inline-size: 42rem;
+      margin-block-start: clamp(1.25rem, 4vw, 2.25rem);
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      line-height: 1.75;
+    }
+
+    .bio:lang(fa) { line-height: 2; }
+    .bio p { margin: 0 0 1em; }
+
+    .bio .availability {
+      margin-block-start: 1.5rem;
+      border-block-start: 1px solid;
+      padding-block-start: 1.25rem;
     }
 
     .linkedin {
       display: inline-flex;
       align-items: center;
-      gap: .75rem;
+      gap: .6rem;
       min-block-size: 2.75rem;
-      border-block-end: 1px solid;
       color: inherit;
-      font: 600 1rem/1.4 system-ui, sans-serif;
-      text-decoration: none;
+      font: 650 1rem/1.4 system-ui, sans-serif;
+      text-underline-offset: .25em;
     }
 
-    .linkedin:hover { border-block-end-width: 2px; }
-    .linkedin:focus-visible { outline: 2px solid; outline-offset: .35rem; }
+    .linkedin:hover { text-decoration-thickness: 2px; }
 
-    @media (max-width: 48rem) {
-      main { grid-template-columns: minmax(0, 1fr); }
-      h1, .details { grid-area: auto; }
-      h1 { text-align: right; }
+    :focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: .25rem;
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1 lang="en" dir="ltr"><span>M. Reza</span> <span>Layeghi</span></h1>
-    <div class="details">
-      <p class="role">مدیر فنی و معمار نرم‌افزار</p>
-      <p class="bio">بیش از ۲۰ سال در توسعه نرم‌افزار تجربه دارم که حدود ۱۱ سال آن در سامانه‌های معاملاتی بازار سرمایه بوده است. تمرکز من بر طراحی این سامانه‌ها و رهبری تیم‌های توسعه است.</p>
-      <a class="linkedin" href="https://www.linkedin.com/in/m-reza-layeghi/" lang="en" dir="ltr">
-        LinkedIn <span aria-hidden="true">↗</span>
-      </a>
+  <header>
+    <p class="name"><bdi lang="en" dir="ltr">M. Reza Layeghi</bdi></p>
+    <div class="languages" role="group" aria-label="زبان صفحه" hidden>
+      <button class="language" type="button" lang="fa" dir="rtl" aria-pressed="true">فارسی</button>
+      <button class="language" type="button" lang="en" dir="ltr" aria-pressed="false">English</button>
     </div>
+  </header>
+  <main>
+    <section id="about-fa" aria-labelledby="title-fa">
+      <h1 id="title-fa">دربارهٔ من</h1>
+      <div class="bio">
+        <p>مدیر ارشد فناوری (<bdi lang="en">CTO</bdi>) با ۲۴ سال تجربه در مهندسی نرم‌افزار و ۱۲ سال تجربه در توسعهٔ سامانه‌های بازار سرمایه، از پلتفرم‌های معاملاتی و سامانه‌های مدیریت سفارش (<bdi lang="en">OMS</bdi>) تا زیرساخت داده‌های لحظه‌ای بازار. تیم‌های فنی میان‌رشته‌ای را هدایت کرده‌ام، سامانه‌هایی با دسترس‌پذیری بالا طراحی کرده‌ام و تحویل محصولات را در محیط‌های حساس فناوری مالی پیش برده‌ام.</p>
+        <p>تجربه‌ام طیف کاملی از نرم‌افزارهای بازار سرمایه را در بر می‌گیرد، از موتورهای اجرای سفارش با تأخیر کم تا سرویس‌های بک‌اند مقیاس‌پذیر (<bdi lang="en">.NET</bdi>، <bdi lang="en">C#</bdi> و ریزخدمت‌ها) و رابط‌های کاربری معاملاتی. در حوزه‌های محصول، معماری و رهبری فنی کار کرده‌ام و تخصص فنی را به اجرای اهداف کسب‌وکار پیوند داده‌ام.</p>
+        <p class="availability">در حال حاضر پذیرای فرصت‌های همکاری در نقش‌های مدیر ارشد فناوری (<bdi lang="en">CTO</bdi>)، معاون مهندسی (<bdi lang="en">VP of Engineering</bdi>) یا معمار ارشد (<bdi lang="en">Principal Architect</bdi>) در فین‌تک، بازار سرمایه و شرکت‌های خدمات مالی مبتنی بر فناوری هستم.</p>
+      </div>
+    </section>
+
+    <section id="about-en" aria-labelledby="title-en" hidden>
+      <h1 id="title-en">About me</h1>
+      <div class="bio">
+        <p>CTO with 24 years in software engineering and 12 years building capital market systems — including trading platforms, OMS, and real-time market data infrastructure. I’ve led cross-functional technical teams, architected high-availability systems, and driven product delivery in high-stakes fintech environments.</p>
+        <p>My background spans the full stack of capital market software: from low-latency execution engines to scalable backend services (.NET, C#, microservices) and front-end trading interfaces. I’ve worked across product, architecture, and leadership — bridging technical depth with business execution.</p>
+        <p class="availability">Currently open to CTO, VP of Engineering, or Principal Architect roles in fintech, capital markets, or tech-driven financial services companies.</p>
+      </div>
+    </section>
+
+    <a class="linkedin" href="https://www.linkedin.com/in/m-reza-layeghi/" lang="en" dir="ltr">
+      LinkedIn <span aria-hidden="true">↗</span>
+    </a>
   </main>
+
+  <script>
+    const languages = {
+      fa: {
+        direction: 'rtl',
+        title: 'دربارهٔ من',
+        label: 'زبان صفحه',
+        description: 'مدیر ارشد فناوری با ۲۴ سال تجربهٔ مهندسی نرم‌افزار و ۱۲ سال تجربهٔ توسعهٔ سامانه‌های بازار سرمایه'
+      },
+      en: {
+        direction: 'ltr',
+        title: 'About me',
+        label: 'Page language',
+        description: 'CTO with 24 years in software engineering and 12 years building capital market systems'
+      }
+    };
+
+    const languageControl = document.querySelector('.languages');
+    const languageButtons = languageControl.querySelectorAll('button');
+    const description = document.querySelector('meta[name="description"]');
+    const storageKey = 'mrlayeghi-intro-language';
+
+    function applyLanguage(language) {
+      const { direction, title, label, description: summary } = languages[language];
+      document.documentElement.lang = language;
+      document.documentElement.dir = direction;
+      document.title = 'M. Reza Layeghi | ' + title;
+      description.content = summary;
+      languageControl.setAttribute('aria-label', label);
+
+      for (const button of languageButtons) {
+        const selected = button.lang === language;
+        button.setAttribute('aria-pressed', String(selected));
+        document.getElementById('about-' + button.lang).hidden = !selected;
+      }
+    }
+
+    let preferredLanguage = 'fa';
+    try {
+      if (localStorage.getItem(storageKey) === 'en') preferredLanguage = 'en';
+    } catch {
+      // The language selector also works when storage is unavailable.
+    }
+
+    applyLanguage(preferredLanguage);
+    languageControl.hidden = false;
+
+    for (const button of languageButtons) {
+      button.addEventListener('click', () => {
+        applyLanguage(button.lang);
+        try {
+          localStorage.setItem(storageKey, button.lang);
+        } catch {
+          // Keep the selected language for the current page.
+        }
+      });
+    }
+  </script>
 </body>
 </html>
