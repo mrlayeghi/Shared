@@ -20,6 +20,8 @@
       color-scheme: light dark;
       --paper: #fff;
       --ink: #000;
+      --rule: #b8b8b8;
+      --control-border: #767676;
       background: var(--paper);
       color: var(--ink);
       font-family: system-ui, sans-serif;
@@ -29,8 +31,10 @@
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --paper: #000;
-        --ink: #fff;
+        --paper: #181818;
+        --ink: #e6e6e6;
+        --rule: #555;
+        --control-border: #777;
       }
     }
 
@@ -50,7 +54,7 @@
       flex-wrap: wrap;
       gap: .5rem 1.5rem;
       padding-block-end: 1rem;
-      border-block-end: 1px solid;
+      border-block-end: 1px solid var(--rule);
     }
 
     .name {
@@ -72,7 +76,7 @@
       place-items: center;
       block-size: 2.75rem;
       inline-size: 2.75rem;
-      border: 1px solid transparent;
+      border: 1px solid var(--control-border);
       border-radius: 50%;
       padding: 0;
       background: transparent;
@@ -91,12 +95,16 @@
 
     .language:hover { border-color: var(--ink); }
 
-    main { padding-block-start: clamp(2.25rem, 7vw, 6rem); }
+    main {
+      max-inline-size: 42rem;
+      margin-inline: auto;
+      padding-block-start: clamp(1.75rem, 4vw, 2.75rem);
+    }
 
     h1 {
       margin: 0;
       max-inline-size: 24ch;
-      font-size: clamp(2.5rem, 7vw, 5.25rem);
+      font-size: clamp(2.125rem, 5vw, 3.5rem);
       line-height: 1;
       letter-spacing: -.06em;
       text-wrap: balance;
@@ -109,8 +117,7 @@
     }
 
     .bio {
-      max-inline-size: 42rem;
-      margin-block-start: clamp(1.25rem, 4vw, 2.25rem);
+      margin-block-start: clamp(1rem, 3vw, 1.75rem);
       font-size: clamp(1rem, 1.5vw, 1.125rem);
       line-height: 1.75;
     }
@@ -120,8 +127,18 @@
 
     .bio .availability {
       margin-block-start: 1.5rem;
-      border-block-start: 1px solid;
+      border-block-start: 1px solid var(--rule);
       padding-block-start: 1.25rem;
+    }
+
+    .role-title { white-space: nowrap; }
+
+    @media (max-width: 40rem) {
+      .bio:lang(fa) { line-height: 1.85; }
+      .bio .availability {
+        margin-block-start: 1.15rem;
+        padding-block-start: 1rem;
+      }
     }
 
     .contact-links {
@@ -166,7 +183,7 @@
       <div class="bio">
         <p>مدیر ارشد فناوری (<bdi lang="en">CTO</bdi>) با ۲۴ سال تجربه در مهندسی نرم‌افزار و ۱۲ سال تجربه در توسعهٔ سامانه‌های بازار سرمایه، از پلتفرم‌های معاملاتی و سامانه‌های مدیریت سفارش (<bdi lang="en">OMS</bdi>) تا زیرساخت داده‌های لحظه‌ای بازار. تیم‌های فنی میان‌رشته‌ای را هدایت کرده‌ام، سامانه‌هایی با دسترس‌پذیری بالا طراحی کرده‌ام و تحویل محصولات را در محیط‌های حساس فناوری مالی پیش برده‌ام.</p>
         <p>تجربه‌ام طیف کاملی از نرم‌افزارهای بازار سرمایه را در بر می‌گیرد، از موتورهای اجرای سفارش با تأخیر کم تا سرویس‌های بک‌اند مقیاس‌پذیر (<bdi lang="en">.NET</bdi>، <bdi lang="en">C#</bdi> و ریزخدمت‌ها) و رابط‌های کاربری معاملاتی. در حوزه‌های محصول، معماری و رهبری فنی کار کرده‌ام و تخصص فنی را به اجرای اهداف کسب‌وکار پیوند داده‌ام.</p>
-        <p class="availability">در حال حاضر پذیرای فرصت‌های همکاری در نقش‌های مدیر ارشد فناوری (<bdi lang="en">CTO</bdi>)، معاون مهندسی (<bdi lang="en">VP of Engineering</bdi>) یا معمار ارشد (<bdi lang="en">Principal Architect</bdi>) در فین‌تک، بازار سرمایه و شرکت‌های خدمات مالی مبتنی بر فناوری هستم.</p>
+        <p class="availability">در حال حاضر پذیرای فرصت‌های همکاری در نقش‌های مدیر ارشد فناوری (<bdi lang="en">CTO</bdi>)، معاون مهندسی (<bdi class="role-title" lang="en">VP of Engineering</bdi>) یا معمار ارشد (<bdi class="role-title" lang="en">Principal Architect</bdi>) در فین‌تک، بازار سرمایه و شرکت‌های خدمات مالی مبتنی بر فناوری هستم.</p>
       </div>
     </section>
 
@@ -175,7 +192,7 @@
       <div class="bio">
         <p>CTO with 24 years in software engineering and 12 years building capital market systems — including trading platforms, OMS, and real-time market data infrastructure. I’ve led cross-functional technical teams, architected high-availability systems, and driven product delivery in high-stakes fintech environments.</p>
         <p>My background spans the full stack of capital market software: from low-latency execution engines to scalable backend services (.NET, C#, microservices) and front-end trading interfaces. I’ve worked across product, architecture, and leadership — bridging technical depth with business execution.</p>
-        <p class="availability">Currently open to CTO, VP of Engineering, or Principal Architect roles in fintech, capital markets, or tech-driven financial services companies.</p>
+        <p class="availability">Currently open to CTO, <span class="role-title">VP of Engineering</span>, or <span class="role-title">Principal Architect</span> roles in fintech, capital markets, or tech-driven financial services companies.</p>
       </div>
     </section>
 
