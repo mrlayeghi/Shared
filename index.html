@@ -113,7 +113,13 @@
       padding-block-start: 1.25rem;
     }
 
-    .linkedin {
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.5rem;
+    }
+
+    .contact-links a {
       display: inline-flex;
       align-items: center;
       gap: .6rem;
@@ -123,7 +129,7 @@
       text-underline-offset: .25em;
     }
 
-    .linkedin:hover { text-decoration-thickness: 2px; }
+    .contact-links a:hover { text-decoration-thickness: 2px; }
 
     :focus-visible {
       outline: 2px solid var(--ink);
@@ -162,9 +168,15 @@
       </div>
     </section>
 
-    <a class="linkedin" href="https://www.linkedin.com/in/m-reza-layeghi/" lang="en" dir="ltr">
-      LinkedIn <span aria-hidden="true">↗</span>
-    </a>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/m-reza-layeghi/" lang="en" dir="ltr">
+        LinkedIn <span aria-hidden="true">↗</span>
+      </a>
+      <a href="mailto:mrlayeghi@gmail.com" lang="en" dir="ltr">mrlayeghi@gmail.com</a>
+      <a href="https://t.me/MReza_Layeghi" lang="en" dir="ltr">
+        Telegram <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </main>
 
   <script>
