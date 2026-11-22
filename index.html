@@ -8,6 +8,14 @@
   <meta name="description" content="مدیر ارشد فناوری با ۲۴ سال تجربهٔ مهندسی نرم‌افزار و ۱۲ سال تجربهٔ توسعهٔ سامانه‌های بازار سرمایه">
   <title>محمد رضا لایقی | دربارهٔ من</title>
   <style>
+    @font-face {
+      font-family: Vazirmatn;
+      src: url("./fonts/Vazirmatn.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
     :root {
       color-scheme: light dark;
       --paper: #fff;
@@ -17,7 +25,7 @@
       font-family: system-ui, sans-serif;
     }
 
-    :root:lang(fa) { font-family: Tahoma, "Segoe UI", sans-serif; }
+    :root:lang(fa) { font-family: Vazirmatn, Tahoma, "Segoe UI", sans-serif; }
 
     @media (prefers-color-scheme: dark) {
       :root {
@@ -47,7 +55,9 @@
 
     .name {
       margin: 0;
-      font: 650 clamp(1rem, 2vw, 1.25rem)/1.35 system-ui, sans-serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 650;
+      line-height: 1.35;
       letter-spacing: -.025em;
     }
 
@@ -71,7 +81,7 @@
       cursor: pointer;
     }
 
-    .language:lang(fa) { font: 700 1rem/1 Tahoma, "Segoe UI", sans-serif; }
+    .language:lang(fa) { font: 700 1rem/1 Vazirmatn, Tahoma, "Segoe UI", sans-serif; }
 
     .language[aria-pressed="true"] {
       border-color: var(--ink);
