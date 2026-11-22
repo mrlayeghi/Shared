@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <meta name="description" content="مدیر ارشد فناوری با ۲۴ سال تجربهٔ مهندسی نرم‌افزار و ۱۲ سال تجربهٔ توسعهٔ سامانه‌های بازار سرمایه">
-  <title>M. Reza Layeghi | دربارهٔ من</title>
+  <title>محمد رضا لایقی | دربارهٔ من</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -139,7 +139,7 @@
 </head>
 <body>
   <header>
-    <p class="name"><bdi lang="en" dir="ltr">M. Reza Layeghi</bdi></p>
+    <p class="name">محمد رضا لایقی</p>
     <div class="languages" role="group" aria-label="زبان صفحه" hidden>
       <button class="language" type="button" lang="fa" dir="rtl" aria-pressed="true" aria-label="فارسی" title="فارسی">
         <span aria-hidden="true">فا</span>
@@ -182,12 +182,14 @@
   <script>
     const languages = {
       fa: {
+        name: 'محمد رضا لایقی',
         direction: 'rtl',
         title: 'دربارهٔ من',
         label: 'زبان صفحه',
         description: 'مدیر ارشد فناوری با ۲۴ سال تجربهٔ مهندسی نرم‌افزار و ۱۲ سال تجربهٔ توسعهٔ سامانه‌های بازار سرمایه'
       },
       en: {
+        name: 'M. Reza Layeghi',
         direction: 'ltr',
         title: 'About me',
         label: 'Page language',
@@ -195,16 +197,18 @@
       }
     };
 
+    const profileName = document.querySelector('.name');
     const languageControl = document.querySelector('.languages');
     const languageButtons = languageControl.querySelectorAll('button');
     const description = document.querySelector('meta[name="description"]');
     const storageKey = 'mrlayeghi-intro-language';
 
     function applyLanguage(language) {
-      const { direction, title, label, description: summary } = languages[language];
+      const { name, direction, title, label, description: summary } = languages[language];
       document.documentElement.lang = language;
       document.documentElement.dir = direction;
-      document.title = 'M. Reza Layeghi | ' + title;
+      profileName.textContent = name;
+      document.title = name + ' | ' + title;
       description.content = summary;
       languageControl.setAttribute('aria-label', label);
 
